@@ -1,0 +1,36 @@
+   button:hover {
+       transform: scale(1.2);
+   }
+
+   button,
+   input[type="submit"] {
+       margin: 10px;
+       min-width: 230px;
+       background-color: #1E56A0;
+       color: #f6f6f6;
+       border-radius: 8px;
+   }
+
+   input[type="text"] {
+       width: 250px;
+       padding: 10px;
+       font-size: 16px;
+       border: 2px solid #1E56A0;
+       border-radius: 8px;
+       outline: none;
+   }
+
+   input[type="password"] {
+       width: 250px;
+       padding: 10px;
+       font-size: 16px;
+       border: 2px solid #1E56A0;
+       border-radius: 8px;
+       outline: none;
+   }
+
+   div {
+    display: block; 
+    text-align: center; 
+    padding-top: 100px;
+   }
