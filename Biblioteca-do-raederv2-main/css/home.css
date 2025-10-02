@@ -97,3 +97,19 @@ input[type="text"]:focus {
 .nome {
     height: 17px;
 }
+
+.meio{
+    display: block;
+    text-align: center;
+}
+
+rodape1{
+    display: block; 
+    text-align: center; 
+    background-color: #1E56A0; 
+    height: 40px;
+}
+
+p{
+    color: #f6f6f6;
+}
