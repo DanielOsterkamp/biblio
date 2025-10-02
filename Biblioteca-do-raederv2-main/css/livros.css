@@ -1,0 +1,102 @@
+/* livros.css */
+/* Reset e base */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* Barra de navegação */
+.head {
+    display: block;
+    text-align: center;
+    background-color: #1E56A0;
+    height: 40px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: #1E56A0;
+}
+
+li {
+    display: inline;
+    padding: 10px;
+    margin: 5px;
+    color: #ffffff;
+    background-color: #1E56A0;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+li a:hover {
+    color: rgb(197, 185, 185);
+}
+
+/* Barra de pesquisa */
+form {
+    display: inline;
+}
+
+input[type="text"] {
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    padding: 2px 5px;
+    width: 80px;
+    height: 20px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+    width: 160px;
+    text-align: left;
+}
+
+/* Títulos */
+h1, h2 {
+    font-size: 45px;
+}
+
+h3 {
+    color: #000;
+    font-size: 100%;
+    padding: 0 20px;
+}
+
+/* Tabelas */
+table {
+    margin: 175px auto 20px auto;
+    border-collapse: collapse;
+    width: 60%;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+}
+
+/* Botões */
+button {
+    padding: 15px 40px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #1E56A0;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #163d73;
+}
