@@ -1,0 +1,99 @@
+/* Cabeçalho */
+.head {
+    text-align: center;
+    background-color: #1E56A0;
+    padding: 10px 0;
+}
+
+/* Menu */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center;
+    gap: 15px;
+    background-color: #1E56A0;
+}
+
+li {
+    padding: 8px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+li:hover {
+    background-color: #163d73; /* tom mais escuro */
+}
+
+li a:hover {
+    color: rgb(197, 185, 185);
+}
+
+/* Corpo */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* Títulos */
+h2 {
+    color: #000000;
+    font-size: 40px;
+    padding: 20px;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+    color: #000000;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* Imagens */
+img {
+    max-width: 200px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Campo de pesquisa */
+form {
+    display: inline;
+}
+
+input[type="text"] {
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    padding: 5px;
+    width: 100px;
+    height: 25px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+    width: 160px;
+    text-align: left;
+}
+
+/* Classe extra */
+.nome {
+    height: 17px;
+}
