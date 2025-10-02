@@ -3,7 +3,7 @@ $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 $data_nascimento = '2008-03-11';
 
-include_once('config.php');
+include_once('../php/config.php');
 
 echo "Nome recebido: " . $nome . "<br>";
 
@@ -27,8 +27,9 @@ echo "Linhas afetadas: " . $stmt->affected_rows . "<br>";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="paleta.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/inicio.css">
 </head>
 <body>
 
