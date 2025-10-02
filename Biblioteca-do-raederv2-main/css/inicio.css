@@ -4,6 +4,8 @@
 
    button,
    input[type="submit"] {
+       padding: 15px 40px; 
+       font-size: 15px; 
        margin: 10px;
        min-width: 230px;
        background-color: #1E56A0;
