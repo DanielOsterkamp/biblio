@@ -105,7 +105,7 @@ img:hover{
 
         <li> <a href="Home.php">minha conta</a></li>
         <li> <a href="Descubra.html">trending</a></li>
-        <li> <a href="Inicio.html">log-out</a></li>
+        <li> <a href="../Inicio/Inicio.html">log-out</a></li>
         <li><input type="text" name="" id="" style="height: 17px;" placeholder="Pesquisar"></li>
         </ul>
 
