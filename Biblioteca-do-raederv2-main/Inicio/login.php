@@ -35,8 +35,8 @@
                 $nome = $_POST['nome'];
                 $senha = $_POST['senha'];
 
-                include_once('config.php');
-include_once('../php/config.php');
+             
+                include_once('../php/config.php');
 
 
 
@@ -58,18 +58,13 @@ include_once('../php/config.php');
 
                 if ($result->num_rows > 0){
                     $_SESSION['nome'] = $nome;
-                    header("Location: Home.php");
+                    header("Location: ../home/Home.php");
                 }else{
                     echo "  <tr><td colspan='2'><p style='text-align: center;'> Nome ou Senha incorretos</p></td></tr>";
                 }
 
                 ?>
-if ($result->num_rows > 0){
-    $_SESSION['nome'] = $nome;
-     header("Location: ../Home/Home.php");
-}else{
-    echo "idiota";
-}
+
 
 
         </table>
