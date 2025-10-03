@@ -96,10 +96,10 @@ input[type="text"]:focus {
       
         <ul>
 
-        <li> <a href="Home.html">minha conta</a></li>
-        <li> <a href="Descubra.html">trending</a></li>
-        <li> <a href="Inicio.html">log-out</a></li>
-        <li> <form action="pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
+        <li> <a href="../Home/Home.php">minha conta</a></li>
+        <li> <a href="../Home/Descubra.html">trending</a></li>
+        <li> <a href="../Inicio/Inicio.html">log-out</a></li>
+        <li> <form action="../Livros/Pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
         </ul>
 
         
@@ -141,7 +141,7 @@ O livro mostra de forma leve e humorada os desafios de crescer, lidar com colega
 
               
 
-                include_once('config.php');
+                include_once('../php/config.php');
 
                 $stmt = $conexao->prepare("SELECT count(*) FROM Emprestimo WHERE id_livro = ?");
                 if (!$stmt) {
@@ -159,8 +159,6 @@ O livro mostra de forma leve e humorada os desafios de crescer, lidar com colega
           
 
                 if ($result->num_rows > 0){
-              
-                 
                     echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->fetch_assoc(). "</td> </tr>";
                 }else{
                  echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
