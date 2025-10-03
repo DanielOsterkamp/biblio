@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="paleta.css">
+
+
+    <style>
+        
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: #1E56A0;
+}
+body{background-color: #f6f6f6;}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+li{
+    display: inline;  padding: 10px;  margin: 5px; color: #ffffff; background-color: #1E56A0; size: 10px; font-size: 20px; border-radius: 8px; margin-top: 50%;
+}
+
+form {
+  display: inline;
+}
+
+li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+    h1{
+        font-size: 45px;
+    }
+
+h2{
+    
+    font-size: 45px;
+}
+
+h3{
+     color: #000000;
+    font-size: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+   font-family: "Trebuchet MS", sans-serif;
+}
+
+
+
+input[type="text"]{
+     text-align: center; 
+     border-radius: 8px; 
+     border: 0px; 
+     padding-left: 1px; 
+     padding-right: 1px; 
+     width: 80px; 
+     height: 20px;  
+     transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+    width: 160px;
+    text-align: left;
+}
+
+
+
+ th td{
+    text-align: center;
+  }
+
+  table {
+      margin: 20px auto; 
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+    li a:hover{
+    color: rgb(197, 185, 185);
+}
+
+  
+
+    </style>
+</head>
+<body>
+    <div class = "head"  style="display: block; text-align: center; background-color: #1E56A0; height: 40px;" >
+      
+        <ul>
+
+        <li> <a href="Home.html">minha conta</a></li>
+        <li> <a href="Descubra.html">trending</a></li>
+        <li> <a href="Inicio.html">log-out</a></li>
+        <li> <form action="pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
+        </ul>
+
+        
+        
+
+    </div>
+
+    <div class = "meio" style="display: block; text-align: center;">
+
+        
+
+        <table style="margin-top: 175px;">
+
+               <tr>
+                  <td rowspan="6">
+                    <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" style="height: 500px; width: 333px;"> 
+                    </td>
+               </tr>
+               <tr>
+                <td colspan="2"><h1>Diário de um banana</h1></td>
+               </tr>
+
+               <tr>
+                <td colspan="2">Jeff Kinney</td>   
+               </tr>
+               
+               <tr>
+                <td colspan="2" style="width: 50%;height: 100%;">O protagonista é Greg Heffley, um garoto no ensino fundamental que registra seu dia a dia cheio de situações engraçadas, dramas escolares, família atrapalhada e amizade complicada com seu melhor amigo, Rowley Jefferson.
+
+O livro mostra de forma leve e humorada os desafios de crescer, lidar com colegas populares, professores, irmãos irritantes e a vontade de ser aceito.</td>
+               </tr>
+                
+              <?php
+
+              $quantidadeDeCopias = 5;
+              $id = 6;
+
+              echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
+
+              
+
+                include_once('config.php');
+
+                $stmt = $conexao->prepare("SELECT count(*) FROM Emprestimo WHERE id_livro = ?");
+                if (!$stmt) {
+                    die("Erro no prepare: " . $conexao->error);
+                }
+
+                $stmt->bind_param("s", $id); // mudar o "sss" para quantidade de variaveis
+
+                if (!$stmt->execute()) {
+                    die("Erro no execute: " . $stmt->error);
+                }
+
+                $result = $stmt->get_result();
+
+          
+
+                if ($result->num_rows > 0){
+              
+                 
+                    echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->fetch_assoc(). "</td> </tr>";
+                }else{
+                 echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
+                } 
+
+                ?>
+
+            
+
+
+
+
+               <tr>
+                <td > <form action="devolverLivro.php" method="post"><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></form></td>
+                <td > <form action="pegarLivro.php" method="post"></form><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></form></td>
+               </tr>
+                 
+
+
+        </table>
+
+         
+
+       
+
+        
+
+    </div>
+    
+    
+</body>
+</html>
