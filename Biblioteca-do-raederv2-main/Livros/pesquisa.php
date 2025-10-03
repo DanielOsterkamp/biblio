@@ -42,22 +42,22 @@ if (strcasecmp($nome, "Percy Jackson 2") == 0) {
     header("Location: pjo2.html");
 }
 if(strcasecmp($nome, "Diário de um banana 2")== 0){
-    header("Location: diario2.html")
+    header("Location: diario2.html");
 }
 if(strcasecmp($nome, "Aristoteles e dante descobrem os segredos do universo")== 0){
-    header("Location: aridante.html")
+    header("Location: aridante.html");
 }
 if(strcasecmp($nome, "Mentirosos")== 0){
-    header("Location: mentirosos.html")
+    header("Location: mentirosos.html");
 }
 if(strcasecmp($nome, "Morro dos ventos uivantes")== 0){
-    header("Location: mvu.html")
+    header("Location: mvu.html");
 }
 if(strcasecmp($nome, "Orgulho e preconceito")== 0){
-    header("Location: orgulhoepreconceito.html")
+    header("Location: orgulhoepreconceito.html");
 }
 if(strcasecmp($nome, "Vermelho, branco e sangue azul")== 0){
-    header("Location: diario2.html")
+    header("Location: diario2.html");
 }
 echo "esse livro n existe, peça para os devs colocarem esse livro <3"
     
