@@ -2,7 +2,7 @@
 
 $nome = $_POST['nome'];
 
-if (strcasecmp($nome, "diario de um banana") == 0) { // da pra usar == caso seja key sensitive 
+if (strcasecmp($nome, "diario de um banana 1") == 0) { // da pra usar == caso seja key sensitive 
     header("Location: diario.html");
 }
 if (strcasecmp($nome, "A Hora da Estrela") == 0) { //strcasecmp retorna 0 caso a string seja igual (ignorando maiuscula e minuscula)
@@ -41,7 +41,24 @@ if (strcasecmp($nome, "Percy Jackson 1") == 0) {
 if (strcasecmp($nome, "Percy Jackson 2") == 0) {
     header("Location: pjo2.html");
 }
-
-echo "esse livro n existe pnc"
+if(strcasecmp($nome, "Diário de um banana 2")== 0){
+    header("Location: diario2.html");
+}
+if(strcasecmp($nome, "Aristoteles e dante descobrem os segredos do universo")== 0){
+    header("Location: aridante.html");
+}
+if(strcasecmp($nome, "Mentirosos")== 0){
+    header("Location: mentirosos.html");
+}
+if(strcasecmp($nome, "Morro dos ventos uivantes")== 0){
+    header("Location: mvu.html");
+}
+if(strcasecmp($nome, "Orgulho e preconceito")== 0){
+    header("Location: orgulhoepreconceito.html");
+}
+if(strcasecmp($nome, "Vermelho, branco e sangue azul")== 0){
+    header("Location: diario2.html");
+}
+echo "esse livro n existe, peça para os devs colocarem esse livro <3"
     
 ?>
