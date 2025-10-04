@@ -36,6 +36,7 @@
             echo "<br>";
             echo "<br>";
             echo  "<h1 >Bem-vindo(a) ".$_SESSION['nome'];
+            echo "<h1> id: ".$_SESSION['id'];
             echo "</h1>" ; 
         ?>
        

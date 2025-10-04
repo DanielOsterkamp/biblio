@@ -36,17 +36,9 @@
                 $nome = $_POST['nome'];
                 $senha = $_POST['senha'];
 
-<<<<<<< HEAD
-             
                 include_once('../php/config.php');
 
-
-
-=======
-                include_once('../php/config.php');
->>>>>>> 471ee71a85e9cacd4f74fe8ba49ca4218cca795c
-
-                $stmt = $conexao->prepare("SELECT * FROM Usuario WHERE nome_usuario = ? and senha = ? ");
+                $stmt = $conexao->prepare("SELECT id_usuario FROM Usuario WHERE nome_usuario = ? and senha = ? ");
                 if (!$stmt) {
                     die("Erro no prepare: " . $conexao->error);
                 }
@@ -58,25 +50,22 @@
                 }
 
                 $result = $stmt->get_result();
+             
 
-          
 
                 if ($result->num_rows > 0){
-                    $_SESSION['nome'] = $nome;
-<<<<<<< HEAD
-                    header("Location: ../home/Home.php");
-=======
+                    if ($row = $result->fetch_assoc()) {
+                        $_SESSION['nome'] = $nome; 
+                        $_SESSION['id'] =  $row['id_usuario'];
+                    }
+                    
+
                     header("Location: ../Home/Home.php");
->>>>>>> 471ee71a85e9cacd4f74fe8ba49ca4218cca795c
                 }else{
                     echo "  <tr><td colspan='2'><p style='text-align: center;'> Nome ou Senha incorretos</p></td></tr>";
                 }
                 ?>
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 471ee71a85e9cacd4f74fe8ba49ca4218cca795c
 
 
         </table>
