@@ -34,7 +34,7 @@
         <table style="margin-top: 175px;">
 
                <tr>
-                  <td rowspan="6">
+                  <td rowspan="7">
                     <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" style="height: 500px; width: 333px;"> 
                     </td>
                </tr>
@@ -90,6 +90,11 @@ O livro mostra de forma leve e humorada os desafios de crescer, lidar com colega
                 <td > <a href="devolverLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></a></td>
                 <td > <a href="pegarLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></a></td>
                </tr>
+
+               <tr>
+                <td colspan = "2"> <p> <?php if (isset($mensagem)) echo $mensagem; ?></p>   </td> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
+               </tr>
+               
                  
 
 
