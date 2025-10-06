@@ -5,91 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="paleta.css">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/livros.css">
 
 
-    <style>
-        
-        ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    background-color: #1E56A0;
-}
-body{background-color: #f6f6f6;}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-li{
-    display: inline;  padding: 10px;  margin: 5px; color: #ffffff; background-color: #1E56A0; size: 10px; font-size: 20px; border-radius: 8px; margin-top: 50%;
-}
-
-form {
-  display: inline;
-}
-
-li a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-    h1{
-        font-size: 45px;
-    }
-
-h2{
-    
-    font-size: 45px;
-}
-
-h3{
-     color: #000000;
-    font-size: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-   font-family: "Trebuchet MS", sans-serif;
-}
-
-
-
-input[type="text"]{
-     text-align: center; 
-     border-radius: 8px; 
-     border: 0px; 
-     padding-left: 1px; 
-     padding-right: 1px; 
-     width: 80px; 
-     height: 20px;  
-     transition: 0.3s ease;
-}
-
-input[type="text"]:focus {
-    width: 160px;
-    text-align: left;
-}
-
-
-
- th td{
-    text-align: center;
-  }
-
-  table {
-      margin: 20px auto; 
-      border-collapse: collapse;
-      width: 60%;
-    }
-
-    li a:hover{
-    color: rgb(197, 185, 185);
-}
-
-  
-
-    </style>
+   
 </head>
 <body>
     <div class = "head"  style="display: block; text-align: center; background-color: #1E56A0; height: 40px;" >
@@ -114,7 +34,7 @@ input[type="text"]:focus {
         <table style="margin-top: 175px;">
 
                <tr>
-                  <td rowspan="6">
+                  <td rowspan="7">
                     <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" style="height: 500px; width: 333px;"> 
                     </td>
                </tr>
@@ -142,7 +62,7 @@ input[type="text"]:focus {
 
                 include_once('../php/config.php');
 
-                $stmt = $conexao->prepare("SELECT count(*) FROM Emprestimo WHERE id_livro = ?");
+                $stmt = $conexao->prepare("SELECT * FROM Emprestimo WHERE id_livro = ?");
                 if (!$stmt) {
                     die("Erro no prepare: " . $conexao->error);
                 }
@@ -158,22 +78,22 @@ input[type="text"]:focus {
           
 
                 if ($result->num_rows > 0){
-                    echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->fetch_assoc(). "</td> </tr>";
+                    echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->num_rows. "</td> </tr>";
                 }else{
                  echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
                 } 
 
                 ?>
 
-            
-
-
-
+               <tr>
+                <td > <a href="devolverLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></a></td>
+                <td > <a href="pegarLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></a></td>
+               </tr>
 
                <tr>
-                <td > <form action="devolverLivro.php" method="post"><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></form></td>
-                <td > <form action="pegarLivro.php" method="post"></form><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></form></td>
+                <td colspan = "2"> <p> <?php if (isset($mensagem)) echo $mensagem; ?></p>   </td> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
                </tr>
+               
                  
 
 

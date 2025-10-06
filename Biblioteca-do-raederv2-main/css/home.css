@@ -62,8 +62,9 @@ h3 {
 
 /* Imagens */
 img {
-    max-width: 200px;
-    height: auto;
+    max-width: 300px;
+    height: 280px;
+    width: 186px;
     margin: 0 10px;
     border-radius: 6px;
     transition: transform 0.3s ease;

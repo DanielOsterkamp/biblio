@@ -38,7 +38,7 @@
 
                 include_once('../php/config.php');
 
-                $stmt = $conexao->prepare("SELECT * FROM Usuario WHERE nome_usuario = ? and senha = ? ");
+                $stmt = $conexao->prepare("SELECT id_usuario FROM Usuario WHERE nome_usuario = ? and senha = ? ");
                 if (!$stmt) {
                     die("Erro no prepare: " . $conexao->error);
                 }
@@ -50,17 +50,22 @@
                 }
 
                 $result = $stmt->get_result();
+             
 
-          
 
                 if ($result->num_rows > 0){
-                    $_SESSION['nome'] = $nome;
+                    if ($row = $result->fetch_assoc()) {
+                        $_SESSION['nome'] = $nome; 
+                        $_SESSION['id'] =  $row['id_usuario'];
+                    }
+                    
+
                     header("Location: ../Home/Home.php");
                 }else{
                     echo "  <tr><td colspan='2'><p style='text-align: center;'> Nome ou Senha incorretos</p></td></tr>";
                 }
                 ?>
-            
+
 
 
         </table>
