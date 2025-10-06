@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <link rel="stylesheet" href="../css/paleta.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/tabela_livros.css">
+    
 </head>
 
 <body>
@@ -64,12 +66,12 @@
                 <td>Memórias do Subsolo</td><td>Dostoiévski</td><td>12/08</td>
              <tr> 
                 
-                <td style="padding-top: 275px;">
+                <td style="padding-top: 175px;">
                           <button> Mudar Senha </button>
                 </td>
 
-                <td style="padding-top: 275px;"> <button> Mudar Apelido </button></td>
-                <td style=" padding-top: 275px; "> <button> Excluir Conta </button></td>
+                <td style="padding-top: 175px;"> <button> Mudar Apelido </button></td>
+                <td style=" padding-top: 175px; "> <button> Excluir Conta </button></td>
 
             </tr>
 
