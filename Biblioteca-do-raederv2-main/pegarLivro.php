@@ -3,7 +3,7 @@
     echo date('Y-m-d');
     
 
-              $quantidadeDeCopias = 5;
+         $quantidadeDeCopias = 5;
               $id = 6;
 
               echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
@@ -35,4 +35,4 @@
                  echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
                 } 
 
-                ?>
+?>

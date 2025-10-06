@@ -128,8 +128,7 @@ input[type="text"]:focus {
                
                <tr>
                 <td colspan="2" style="width: 50%;height: 100%;">O protagonista é Greg Heffley, um garoto no ensino fundamental que registra seu dia a dia cheio de situações engraçadas, dramas escolares, família atrapalhada e amizade complicada com seu melhor amigo, Rowley Jefferson.
-
-O livro mostra de forma leve e humorada os desafios de crescer, lidar com colegas populares, professores, irmãos irritantes e a vontade de ser aceito.</td>
+                O livro mostra de forma leve e humorada os desafios de crescer, lidar com colegas populares, professores, irmãos irritantes e a vontade de ser aceito.</td>
                </tr>
                 
               <?php
