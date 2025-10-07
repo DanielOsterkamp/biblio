@@ -64,11 +64,13 @@
                 while ($emprestimo = mysqli_fetch_assoc($stmt_emprestimo)){
 
                     $stmt_livro = mysqli_query($conexao,"SELECT * FROM livro WHERE id_livro = ". $emprestimo['id_livro']);
+                    
                     while ($livro = mysqli_fetch_assoc($stmt_livro)){
+
                           $stmt_autor = mysqli_query($conexao,"SELECT * FROM autor WHERE id_autor = ". $livro['id_autor']);
-                    while ($autor = mysqli_fetch_assoc($stmt_autor)){
-                         echo "<tr><td>".$livro['titulo']."</td><td>".$autor['nome_autor']."</td><td>".$emprestimo['data_devolucao']."</td></tr>";
-                    }
+                             while ($autor = mysqli_fetch_assoc($stmt_autor)){
+                                 echo "<tr><td>".$livro['titulo']."</td><td>".$autor['nome_autor']."</td><td>".$emprestimo['data_devolucao']."</td></tr>";
+                             }
                     }
 
                 }
