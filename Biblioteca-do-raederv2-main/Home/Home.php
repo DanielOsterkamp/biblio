@@ -34,9 +34,7 @@
 
         <?php
             session_start();
-            echo "<br>";
-            echo "<br>";
-            echo "<br>";
+       
             echo  "<h1 >Bem-vindo(a) ".$_SESSION['nome'];
             echo "</h1>" ; 
         ?>
@@ -50,26 +48,35 @@
                     </th>
                </tr>
                  
-            </tr>
+            
             <tr>
                 <th>Nome do livro</th>
                 <th>Autor</th>
                 <th>Data de devolução</th>
             </tr>
-            <tr>
-                <td>Diário de um Banana</td><td>Jeff Kinney</td><td>24/09</td>
-            </tr>
-            <tr>
-                <td>A Hora da Estrela</td><td>Clarice Lispector</td><td>15/07</td>
-            </tr>
-            <tr>
-                <td>Memórias do Subsolo</td><td>Dostoiévski</td><td>12/08</td>
+
+            <?php
+
+             include_once('../php/config.php');
+
+                $stmt_emprestimo = mysqli_query($conexao,"SELECT * FROM emprestimo WHERE id_usuario = ". $_SESSION['id']);
+           
+                while ($emprestimo = mysqli_fetch_assoc($stmt_emprestimo)){
+
+                    $stmt_livro = mysqli_query($conexao,"SELECT * FROM livro WHERE id_livro = ". $emprestimo['id_livro']);
+                    while ($livro = mysqli_fetch_assoc($stmt_livro)){
+                          $stmt_autor = mysqli_query($conexao,"SELECT * FROM autor WHERE id_autor = ". $livro['id_autor']);
+                    while ($autor = mysqli_fetch_assoc($stmt_autor)){
+                         echo "<tr><td>".$livro['titulo']."</td><td>".$autor['nome_autor']."</td><td>".$emprestimo['data_devolucao']."</td></tr>";
+                    }
+                    }
+
+                }
+            ?>
+           
              <tr> 
                 
-                <td style="padding-top: 175px;">
-                          <button> Mudar Senha </button>
-                </td>
-
+                <td style="padding-top: 175px;"><button> Mudar Senha </button></td>
                 <td style="padding-top: 175px;"> <button> Mudar Apelido </button></td>
                 <td style=" padding-top: 175px; "> <button> Excluir Conta </button></td>
 
