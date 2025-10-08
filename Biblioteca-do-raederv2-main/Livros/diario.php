@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Diário de um banana</title>
 
     <link rel="stylesheet" href="../css/paleta.css">
     <link rel="stylesheet" href="../css/livros.css">
@@ -12,7 +12,7 @@
    
 </head>
 <body>
-    <div class = "head"  style="display: block; text-align: center; background-color: #1E56A0; height: 40px;" >
+    <div class = "head">
       
         <ul>
 
@@ -22,20 +22,17 @@
         <li> <form action="../Livros/Pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
         </ul>
 
-        
-        
-
     </div>
 
-    <div class = "meio" style="display: block; text-align: center;">
+    <div class = "meio" >
 
         
 
-        <table style="margin-top: 175px;">
+        <table>
 
                <tr>
                   <td rowspan="7">
-                    <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" style="height: 500px; width: 333px;"> 
+                    <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" > 
                     </td>
                </tr>
                <tr>
@@ -47,18 +44,16 @@
                </tr>
                
                <tr>
-                <td colspan="2" style="width: 50%;height: 100%;">O protagonista é Greg Heffley, um garoto no ensino fundamental que registra seu dia a dia cheio de situações engraçadas, dramas escolares, família atrapalhada e amizade complicada com seu melhor amigo, Rowley Jefferson.
+                <td colspan="2" >O protagonista é Greg Heffley, um garoto no ensino fundamental que registra seu dia a dia cheio de situações engraçadas, dramas escolares, família atrapalhada e amizade complicada com seu melhor amigo, Rowley Jefferson.
                 O livro mostra de forma leve e humorada os desafios de crescer, lidar com colegas populares, professores, irmãos irritantes e a vontade de ser aceito.</td>
                </tr>
                 
               <?php
 
-              $quantidadeDeCopias = 5;
-              $id = 6;
+                $quantidadeDeCopias = 5;
+                $id = 6;
 
-              echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
-
-              
+                echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
 
                 include_once('../php/config.php');
 
@@ -77,36 +72,21 @@
 
           
 
-                if ($result->num_rows > 0){
-                    echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->num_rows. "</td> </tr>";
-                }else{
-                 echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
-                } 
+                    if ($result->num_rows > 0){
+                        echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->num_rows. "</td> </tr>";
+                    }else{
+                    echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
+                    } 
+
+                    echo  "<tr>";
+                    echo "<td > <a href=../php/devolverLivro.php?id=".$id.'><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></a></td>';
+                    echo "<td > <a href=../php/pegarLivro.php?id=".$id.'&quantidadeDeCopias='.$quantidadeDeCopias.'><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></a></td>';
+                    echo "</tr>";
 
                 ?>
-
-               <tr>
-                <td > <a href="devolverLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></a></td>
-                <td > <a href="pegarLivro.php"><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></a></td>
-               </tr>
-
-               <tr>
-                <td colspan = "2"> <p> <?php if (isset($mensagem)) echo $mensagem; ?></p>   </td> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
-               </tr>
-               
-                 
-
-
         </table>
-
-         
-
-       
-
-        
-
+                      <p> <?php if (isset($mensagem)) echo $mensagem; ?></p> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
     </div>
-    
-    
+                  
 </body>
 </html>

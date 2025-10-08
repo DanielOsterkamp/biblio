@@ -72,6 +72,8 @@ h3 {
     padding: 0 20px;
 }
 
+
+
 /* Tabelas */
 table {
     margin: 90px auto 20px auto;
@@ -114,5 +116,9 @@ button:hover {
 /* Centralização */
 .meio {
     display: block;
+    text-align: center;
+}
+
+p{
     text-align: center;
 }

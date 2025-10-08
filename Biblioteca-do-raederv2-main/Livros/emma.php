@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memórias do Subsolo</title>
+    <title>Emma</title>
     <link rel="stylesheet" href="../css/paleta.css">
     <link rel="stylesheet" href="../css/livros.css">
 </head>
@@ -24,7 +24,7 @@
     <div class="meio">
         <table>
             <tr>
-                <td rowspan="6">
+                <td rowspan="7">
                     <img src="https://m.media-amazon.com/images/I/71COwZu-WbL._SY466_.jpg" alt="">
                 </td>
             </tr>
@@ -40,15 +40,49 @@
                      a comicidade dos diálogos e a observação arguta sobre o espaço da mulher em um mundo masculino.
                 </td>
             </tr>
-            <tr>
-                <td>Quantidade de Cópias: 3</td>
-                <td>Quantidade de Cópias Disponíveis: 2</td>
-            </tr>
-            <tr>
-                <td><button>Devolver</button></td>
-                <td><button>Pegar</button></td>
-            </tr>
+
+            <?php
+
+                $quantidadeDeCopias = 3;
+                $id = 2;
+
+                echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
+
+                include_once('../php/config.php');
+
+                $stmt = $conexao->prepare("SELECT * FROM Emprestimo WHERE id_livro = ?");
+                if (!$stmt) {
+                    die("Erro no prepare: " . $conexao->error);
+                }
+
+                $stmt->bind_param("s", $id); // mudar o "sss" para quantidade de variaveis
+
+                if (!$stmt->execute()) {
+                    die("Erro no execute: " . $stmt->error);
+                }
+
+                $result = $stmt->get_result();
+
+          
+
+                    if ($result->num_rows > 0){
+                        echo  "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias- (int)$result->num_rows. "</td> </tr>";
+                    }else{
+                    echo "<td>Quantidade de Cópias Disponiveis: ". $quantidadeDeCopias. "</td> </tr>";
+                    } 
+
+                    echo  "<tr>";
+                    echo "<td > <a href=../php/devolverLivro.php?id=".$id.'><button style="padding: 15px 40px; font-size: 15px;" > Devolver</button></a></td>';
+                    echo "<td > <a href=../php/pegarLivro.php?id=".$id.'&quantidadeDeCopias='.$quantidadeDeCopias.'><button style="padding: 15px 40px; font-size: 15px;" > Pegar </button></a></td>';
+                    echo "</tr>";
+
+                ?>
+
         </table>
+
+         <p> <?php if (isset($mensagem)) echo $mensagem; ?></p>   <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
+
     </div>
 </body>
 </html>
+

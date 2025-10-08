@@ -9,8 +9,9 @@
 
     session_start(); // basicamente pega os dados do usuario logado
 
-    $quantidadeDeCopias = 5;
-    $id = 6;
+    $id = $_GET['id'];
+    $quantidadeDeCopias = $_GET['quantidadeDeCopias'];
+    
 
     include_once('config.php');
 
@@ -41,15 +42,32 @@
                 }
                             
                 if ($stmt->affected_rows > 0){ 
-
                     $mensagem = "Livro pego com sucesso";  // essa é a mensagem que vai aparecer no php do include
-                    include 'diario.php'; // esse include simula o outro php
-
                 }
-
         }else{
             $mensagem = "Sem copias disponiveis desse livro";  // essa é a mensagem que vai aparecer no php do include
-            include 'diario.php'; // esse include simula o outro php
         }
+
+        if ($id == 1) {
+            include '../livros/orgulhoepreconceito.php'; // esse include simula o outro php
+         } elseif ($id == 2) {
+            include '../livros/emma.php';
+         } elseif ($id == 3) {
+            include '../livros/mvu.php';
+         } elseif ($id == 4) {
+            include '../livros/noitesbrancas.php';
+         } elseif ($id == 5) {
+            include '../livros/memorias.php';
+         } elseif ($id == 6) {
+            include '../livros/diario.php';
+         } elseif ($id == 7) {
+            include '../livros/diario2.php';
+         } elseif ($id == 8) {
+            include '../livros/vbsa.php';
+         } elseif ($id == 9) {
+            include '../livros/ahora.php';
+         } else {
+            echo "Livro não encontrado.";
+         }
 
 ?>

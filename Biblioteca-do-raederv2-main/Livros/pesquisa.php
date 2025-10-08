@@ -24,7 +24,7 @@ if (strcasecmp($nome, "Dom casmurro") == 0) {
     header("Location: domcasmurro.html");
 }
 if (strcasecmp($nome, "Emma") == 0) { 
-    header("Location:  emma.html"); 
+    header("Location:  emma.php"); 
 }
 if (strcasecmp($nome, "Harry potter e a pedra filosofal") == 0) {
     header("Location: hp1.html");
