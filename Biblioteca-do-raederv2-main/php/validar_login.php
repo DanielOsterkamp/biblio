@@ -10,7 +10,7 @@ if (isset($_POST['sub']) && !empty($_POST['sub']))
     $pas = $_POST['pas'];
 
     // Buscar apenas pelo nome de usuário
-    $sql = "SELECT * FROM usuarios WHERE nome = ?";
+    $sql = "SELECT * FROM usuario WHERE nome_usuario = ? AND is_admin = 1"; 
     $stmt = mysqli_prepare($conexao, $sql);
 
     if ($stmt) {
@@ -19,13 +19,19 @@ if (isset($_POST['sub']) && !empty($_POST['sub']))
         $resultado = mysqli_stmt_get_result($stmt);
 
         if ($linha = mysqli_fetch_assoc($resultado)) {
+
+           $novaSenha = password_hash($pas, PASSWORD_DEFAULT); // passa a senha pra hash (testando o cadastro da jolie, já que os usuarios criados direto no banco não tem hash)
+
+           echo $novaSenha;
+
             //Verificar se a senha informada bate com o hash no banco
-            if (password_verify($pas, $linha['senha'])) {
+            if (password_verify($pas, $novaSenha)) {  // colocar "$linha['senha']" no lugar do "novasenha" quando todos os usuarios do banco estiverem com hash
                 session_start();
                 $_SESSION['login'] = 'ok';
                 header("Location: ../php/principal.php");
                 exit;
             }
+       
         }
 
         //Se chegou aqui, usuário ou senha inválido

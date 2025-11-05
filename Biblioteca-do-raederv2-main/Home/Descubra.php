@@ -41,7 +41,7 @@
      $stmt->execute();
      $result = $stmt->get_result();
 
-     echo "<h2> $titulo </h2> <div class="meio"> <table> <tr>";
+     echo "<h2> $titulo </h2> <div class='meio'> <table> <tr>";
 
      while($livro = $result->fetch_assoc()) {
         echo "<td>
@@ -63,7 +63,7 @@
    $stmt->execute();
    $result = $stmt->get_result();
    echo "<h2> Livros mais procurados </h2>
-    <div class="meio"> <table> <tr>";
+    <div class='meio'> <table> <tr>";
 
    while($livro = $result->fetch_assoc()) {
         echo "<td>
