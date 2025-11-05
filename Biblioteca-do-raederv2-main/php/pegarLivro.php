@@ -48,26 +48,6 @@
             $mensagem = "Sem copias disponiveis desse livro";  // essa é a mensagem que vai aparecer no php do include
         }
 
-        if ($id == 1) {
-            include '../livros/orgulhoepreconceito.php'; // esse include simula o outro php
-         } elseif ($id == 2) {
-            include '../livros/emma.php';
-         } elseif ($id == 3) {
-            include '../livros/mvu.php';
-         } elseif ($id == 4) {
-            include '../livros/noitesbrancas.php';
-         } elseif ($id == 5) {
-            include '../livros/memorias.php';
-         } elseif ($id == 6) {
-            include '../livros/diario.php';
-         } elseif ($id == 7) {
-            include '../livros/diario2.php';
-         } elseif ($id == 8) {
-            include '../livros/vbsa.php';
-         } elseif ($id == 9) {
-            include '../livros/ahora.php';
-         } else {
-            echo "Livro não encontrado.";
-         }
+      header('location: ../livros/livroPadrao.php?id='.$id."&mensagem=".$mensagem );
 
 ?>

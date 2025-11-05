@@ -64,7 +64,7 @@
 
                <tr>
                   <td rowspan="7">
-                    <img src="https://m.media-amazon.com/images/I/71fWaI5myqL._UF1000,1000_QL80_.jpg" alt="" > 
+                    <img src="../fotos/<?php echo $id.".jpg";?>"  alt="" > <!-- ele tenta como jpg, se n existir, tenta como png -->
                     </td>
                </tr>
                <tr>
@@ -116,7 +116,14 @@
 
                 ?>
         </table>
-                      <p> <?php if (isset($mensagem)) echo $mensagem; ?></p> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
+                      <p> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
+                        <?php 
+                            $mensagem = $_GET['mensagem']; 
+                            if ($mensagem != ""){ 
+                                echo $mensagem;
+                                }  
+                        ?>
+                    </p> 
     </div>
                   
 </body>

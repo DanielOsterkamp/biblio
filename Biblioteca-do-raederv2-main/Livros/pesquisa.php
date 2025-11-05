@@ -44,38 +44,38 @@ if(strcasecmp($nome, "Mentirosos")== 0){
 // livros do banco
 
 if(strcasecmp($nome, "Orgulho e preconceito")== 0){
-    header("Location: livroPadrao.php?id=1");
+    header("Location: livroPadrao.php?id=1&mensagem=");
 }
 
 if (strcasecmp($nome, "diario de um banana 1") == 0) { // da pra usar == caso seja key sensitive 
-    header("Location: livroPadrao.php?id=6");
+    header("Location: livroPadrao.php?id=6&mensagem=");
 }
 if (strcasecmp($nome, "A Hora da Estrela") == 0) { //strcasecmp retorna 0 caso a string seja igual (ignorando maiuscula e minuscula)
-     header("Location: livroPadrao.php?id=9"); // header leva para o arquivo
+     header("Location: livroPadrao.php?id=9&mensagem="); // header leva para o arquivo
 }
 
 if(strcasecmp($nome, "Morro dos ventos uivantes")== 0){
-    header("Location: livroPadrao.php?id=3");
+    header("Location: livroPadrao.php?id=3&mensagem=");
 }
 
 if (strcasecmp($nome, "memorias do subsolo") == 0) {
-     header("Location: livroPadrao.php?id=5");
+     header("Location: livroPadrao.php?id=5&mensagem=");
 }
 
 if (strcasecmp($nome, "Emma") == 0) { 
-    header("Location: livroPadrao.php?id=2");
+    header("Location: livroPadrao.php?id=2&mensagem=");
 }
 
 if(strcasecmp($nome, "Vermelho, branco e sangue azul")== 0){
-     header("Location: livroPadrao.php?id=8");
+     header("Location: livroPadrao.php?id=8&mensagem=");
 }
 
 if(strcasecmp($nome, "Diário de um banana 2")== 0){
-    header("Location: livroPadrao.php?id=7");
+    header("Location: livroPadrao.php?id=7&mensagem=");
 }
 
 if (strcasecmp($nome, "Noites brancas") == 0) {
-    header("Location: livroPadrao.php?id=4");
+    header("Location: livroPadrao.php?id=4&mensagem=");
 }
 
 echo "esse livro n existe, peça para os devs colocarem esse livro <3"
