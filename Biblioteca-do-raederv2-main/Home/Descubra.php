@@ -34,7 +34,7 @@
         FROM livro l 
         JOIN autor a 
         ON l.id_autor = a.id_autor 
-        WHERE l.categoria = ? 
+        WHERE l.id_categoria = ? 
         LIMIT 7");
 
      $stmt->bind_param("s",$categoria);
@@ -45,7 +45,7 @@
 
      while($livro = $result->fetch_assoc()) {
         echo "<td>
-         <a href='../php/criar_paginas.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
+         <a href='../php/livroPadrao.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
          <h3>{$livro['titulo']}</h3>
          </td>";
      }
@@ -59,7 +59,7 @@
 
    // livro + procurados 
 
-   $stmt = $conexao->prepare("SELECT * FROM livros_mais_procurados LIMIT 7");
+   $stmt = $conexao->prepare("SELECT * FROM livros_mais_emprestados LIMIT 7");
    $stmt->execute();
    $result = $stmt->get_result();
    echo "<h2> Livros mais procurados </h2>
@@ -67,7 +67,7 @@
 
    while($livro = $result->fetch_assoc()) {
         echo "<td>
-         <a href='../php/criar_paginas.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
+         <a href='../php/livroPadrao.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
          <h3>{$livro['titulo']}</h3>
          </td>";
     }
