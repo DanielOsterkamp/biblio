@@ -14,6 +14,7 @@ error_reporting(E_ALL);
 
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
+
 ?>
 <div class="container">
 
@@ -35,7 +36,7 @@ require_once("../php/verificar_sessao.php");
     <h1 class="h1 text-center">Cadastro de Livros</h1>
     <p class="lead text-center">Preencha os dados abaixo para incluir um novo livro.</p>
 
-    <form action="../php/exec-cadastrar.php" method="post" enctype="multipart/form-data" class="form mt-6">
+    <form action="../php/exec_cadastrar_livro.php" method="post" enctype="multipart/form-data" class="form mt-6">
 
       <div class="form-group">
         <label for="titulo">Título do Livro:</label>
@@ -47,9 +48,10 @@ require_once("../php/verificar_sessao.php");
         <input type="file" name="capa" id="capa" accept="image/*">
       </div>
 
+      <!-- quando estiver pronto, fazer pegar o id pelo nome do autor por select, se n exixstir, cria o autor -->
       <div class="form-group">
-        <label for="autor">Autor:</label>
-        <input type="file" name="autor" id="autor" placeholder="Digite o nome do autor" required>
+        <label for="autor">Id Autor:</label>
+        <input type="number" name="autor" id="autor" placeholder="Digite o id do autor" required>
       </div>
 
       <div class="form-group">
@@ -62,10 +64,25 @@ require_once("../php/verificar_sessao.php");
         <input type="text" name="editora" id="editora" placeholder="Digite o nome de editora" required>
       </div>
 
-      <!-- transformar em tipo select, pegando categorias já cadastradas no banco  -->
       <div class="form-group">
-        <label for="categoria">Categoria:</label>
-        <input type="" name="categoria" id="categoria" placeholder="" required>
+        <label for="paginas">Número de Páginas:</label>
+        <input type="num" name="paginas" id="paginas" placeholder="Digite o numero de paginas" required>
+      </div>
+
+       <div class="form-group">
+        <label for="sinopse">Sinopse:</label>
+        <input type="text" name="sinopse" id="sinopse" placeholder="Digite a sinopse" required>
+      </div>
+
+      <!-- transformar em tipo select, pegando categorias já cadastradas no banco, mesma coisa que o autor  -->
+      <div class="form-group">
+        <label for="categoria"> id Categoria:</label>
+        <input type="num" name="categoria" id="categoria" placeholder="" required>
+      </div>
+
+      <div class="form-group">
+        <label for="copias"> Número de Copias:</label>
+        <input type="num" name="copias" id="copias" placeholder="" required>
       </div>
 
       <div class="text-center mt-6">

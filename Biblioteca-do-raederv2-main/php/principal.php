@@ -23,7 +23,7 @@ require_once '../php/verificar_sessao.php';
       <span>Cadastro de Livros</span>
     </a>
     <nav class="nav">
-      <a href="../php/form_cadastrar.php">Cadastrar</a>
+      <a href="../php/form_cadastrar_livro.php">Cadastrar</a>
       <a href="../php/listar.php">Atualizar/Excluir</a>
       <a href="../php/sair.php" class="btn small ghost">Sair</a>
     </nav>

@@ -1,5 +1,5 @@
 <?php
-include_once('../php/config');
+require_once "../php/config.php";
 
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
     die("ID do livro inválido"); 
@@ -16,7 +16,7 @@ $stmt = mysqli_prepare($conexao, "
 
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_execute($stmt);
-mysqli_stmt_get_result($stmt);
+$result = mysqli_stmt_get_result($stmt);
  $livro = mysqli_fetch_assoc($result);
 
 if(!$livro){
@@ -26,7 +26,7 @@ if(!$livro){
 // tem que fazer a parte para calcular as cópias disponíveis. 
 
 mysqli_stmt_close($stmt);
-mysqli_stmt_close($stmt_emprestimos);
+// mysqli_stmt_close($stmt_emprestimos); não entendi o pq dessa linha, como tava dando erro eu coloquei como comentario :)
 mysqli_close($conexao);
 
 ?>
