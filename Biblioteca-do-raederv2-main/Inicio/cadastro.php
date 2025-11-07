@@ -1,7 +1,7 @@
 <?php
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
-$data_nascimento = '2008-03-11';
+$data_nascimento = $_POST['data'];
 
 include_once('../php/config.php');
 

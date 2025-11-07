@@ -7,13 +7,14 @@ $id = $_GET['id'];
     <meta charset="UTF-8">
     <title>Confirmar Exclusão</title>
     <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/adm.css">
 </head>
 <body>
 <div class="container" style="text-align:center; margin-top:50px;">
 
     <h2>Tem certeza que deseja excluir este produto?</h2>
 
-<form action="../php/exec_excluir.php" method="post" style="display:inline-block; margin-right:10px;">
+<form action="../php/exec_excluir_livro.php" method="post" style="display:inline-block; margin-right:10px;">
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <button type="submit" name="confirmar" value="sim" class="btn">Sim, excluir</button>
 <button type="button" name="cancelar" 

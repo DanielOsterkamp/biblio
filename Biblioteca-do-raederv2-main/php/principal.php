@@ -12,6 +12,7 @@ require_once '../php/verificar_sessao.php';
   <meta charset="UTF-8">
   <title>Administração - Biblioteca</title>
   <link rel="stylesheet" href="../css/paleta.css">
+  <link rel="stylesheet" href="../css/adm.css">
 </head>
 <body>
 
@@ -19,14 +20,10 @@ require_once '../php/verificar_sessao.php';
 
   <!-- Cabeçalho -->
   <header class="header">
-    <a href="#" class="brand">
-      <span>Cadastro de Livros</span>
-    </a>
-    <nav class="nav">
-      <a href="../php/form_cadastrar_livro.php">Cadastrar</a>
-      <a href="../php/listar.php">Atualizar/Excluir</a>
-      <a href="../php/sair.php" class="btn small ghost">Sair</a>
-    </nav>
+   
+      <h1>Cadastro de Livros</h1>
+  
+    
   </header>
 
   <!-- Conteúdo principal -->
@@ -34,9 +31,15 @@ require_once '../php/verificar_sessao.php';
     <p class="lead">Bem-vindo à área administrativa.</p>
 
     <div class="mt-6">
-      <img src="../img/restrito.png" alt="Área restrita" style="max-width:220px; opacity:0.9;">
+      <img src="../fotos/restrito.jpg" alt="Área restrita" style="max-width:220px; opacity:0.9;">
     </div>
   </main>
+
+  <nav class="nav">
+      <a href="../php/form_cadastrar_livro.php"><button>Cadastrar</button></a>
+      <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
+      <a href="../php/sair.php" class="btn small ghost"><button>Sair</button></a>
+    </nav>
 
   <!-- Rodapé -->
   <footer class="footer text-center">

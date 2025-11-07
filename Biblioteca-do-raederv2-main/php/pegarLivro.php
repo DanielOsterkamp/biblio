@@ -24,8 +24,6 @@
 
         $result = $stmt2->get_result();
 
-          
-
 
         if ($quantidadeDeCopias - $result->num_rows > 0){ // verifica se tem livro disponivel pra pegar
 
@@ -42,10 +40,10 @@
                 }
                             
                 if ($stmt->affected_rows > 0){ 
-                    $mensagem = "Livro pego com sucesso";  // essa é a mensagem que vai aparecer no php do include
+                    $mensagem = "Livro pego com sucesso";  // essa é a mensagem que vai aparecer no php do header
                 }
         }else{
-            $mensagem = "Sem copias disponiveis desse livro";  // essa é a mensagem que vai aparecer no php do include
+            $mensagem = "Sem copias disponiveis desse livro";  // essa é a mensagem que vai aparecer no php do header
         }
 
       header('location: ../livros/livroPadrao.php?id='.$id."&mensagem=".$mensagem );

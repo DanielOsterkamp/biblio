@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastrar Autor</title>
-  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="stylesheet" href="../css/paleta.css">
+  <link rel="stylesheet" href="../css/adm.css">
 </head>
 <body>
 
@@ -15,26 +16,34 @@ error_reporting(E_ALL);
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
-
+$autor = $_GET['autor'];
 
 ?>
 <div class="container">
 
   <!-- Cabeçalho -->
   <header class="header">
-    <a href="#" class="brand">
       <img src="" alt="">
-      <span>Área Administrativa</span>
-    </a>
-    <nav class="nav">
-      <a href="../php/form_cadastrar_livro.php" class="btn small">Cadastrar Livro</a>
-      <a href="../php/listar.php">Atualizar/Excluir</a>
-      <a href="../php/sair.php" class="btn small ghost">Sair</a>
-    </nav>
+      <h2>Área Administrativa</h2>
+      <nav class="nav">
+        <a href="../php/form_cadastrar_livro.php"><button>Cadastrar Livro</button></a>
+        <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
+        <a href="../php/sair.php"><button>Sair</button></a>
+      </nav>
   </header>
 
+
   <!-- Conteúdo -->
-  <main class="card" style="max-width: 500px; margin: 50px auto; padding: 30px;">
+  <main class="card" >
+
+
+  <!-- caso o usuario tenha vindo pelo erro de autor não encontrado do exec_cadastrar_livro, mostra essa mensagem-->
+  <?php
+  if ($autor){ 
+    echo '<h2 class="h1 text-center">Nome do autor '.$autor .' não encontrado, cadastre ele</h2>';
+  }
+  ?>
+
     <h1 class="h1 text-center">Cadastro de Autor</h1>
     <p class="lead text-center">Preencha os dados abaixo para incluir um novo Autor</p>
 
@@ -42,7 +51,18 @@ require_once("../php/verificar_sessao.php");
 
       <div class="form-group">
         <label for="nome">Nome do Autor:</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome do autor" required>
+
+        <!-- caso o usuario tenha vindo pelo erro de autor não encontrado do exec_cadastrar_livro, ele preenche essa parte automaticamente -->
+        <input type="text" name="nome" id="nome"
+         <?php 
+          if ($autor){
+            echo 'value="'.$autor.'"';
+          } else{
+            echo 'placeholder="Nome Autor"'; 
+          }
+         ?> required>
+
+
       </div>
 
       <div class="form-group">

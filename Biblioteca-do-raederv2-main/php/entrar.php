@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Login - Área Restrita</title>
   <link rel="stylesheet" href="../css/paleta.css">
+  <link rel="stylesheet" href="../css/adm.css">
 </head>
 <body>
 

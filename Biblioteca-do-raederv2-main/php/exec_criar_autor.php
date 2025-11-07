@@ -1,7 +1,7 @@
 <?php
 require_once "../php/config.php";
 // Verificar se é POST e campos obrigatórios estão presentes
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titulo'])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
     $nome = $_POST['nome'];
     $data = $_POST['data']; 
     $nacionalidade = $_POST['nacionalidade'];
@@ -27,6 +27,6 @@ mysqli_stmt_close($stmt);
 mysqli_close($conexao);
 
 // Redirecionar para criar a página HTML dinâmica
-header("Location: ../php/form_cadastrar_livro.php?id=$novo_id");
+header("Location: ../php/form_cadastrar_livro.php?autor=$nome");
 exit;
 ?>

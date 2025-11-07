@@ -11,7 +11,7 @@ $confirmar = $_POST['confirmar'] ?? null;
 if ($id) {
     if ($confirmar === 'sim') {
         // Usuário confirmou a exclusão
-        $sql = "DELETE FROM livro WHERE id=$id";
+        $sql = "DELETE FROM livro WHERE id_livro=$id";
 
         if (mysqli_query($conexao, $sql)) {
 

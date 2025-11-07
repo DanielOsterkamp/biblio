@@ -3,102 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastrar Livro</title>
-  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="stylesheet" href="../css/paleta.css">
+  <link rel="stylesheet" href="../css/adm.css">
+  
 </head>
 <body>
 
 <?php
-// Exibir erros apenas em ambiente de desenvolvimento
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
+$autor = $_GET['autor'];
+$mensagem = $_GET['mensagem'];
 ?>
 <div class="container">
 
   <!-- Cabeçalho -->
   <header class="header">
-    <a href="#" class="brand">
       <img src="" alt="">
-      <span>Área Administrativa</span>
-    </a>
-    <nav class="nav">
-      <a href="../php/form_cadastrar_livro.php" class="btn small">Cadastrar Livro</a>
-      <a href="../php/listar.php">Atualizar/Excluir</a>
-      <a href="../php/sair.php" class="btn small ghost">Sair</a>
-    </nav>
+      <h2>Área Administrativa</h2>
+      <nav class="nav">
+        <a href="../php/form_cadastrar_livro.php"><button>Cadastrar Livro</button></a>
+        <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
+        <a href="../php/sair.php"><button>Sair</button></a>
+      </nav>
   </header>
 
   <!-- Conteúdo -->
-  <main class="card" style="max-width: 500px; margin: 50px auto; padding: 30px;">
+  <main class="card">
+
+    <?php
+      if ($mensagem){
+        echo '<h1 class="h1 text-center">'.$mensagem.'</h1>';
+      }
+    ?>
+
     <h1 class="h1 text-center">Cadastro de Livros</h1>
     <p class="lead text-center">Preencha os dados abaixo para incluir um novo livro.</p>
 
-    <form action="../php/exec_cadastrar_livro.php" method="post" enctype="multipart/form-data" class="form mt-6">
+    <form action="../php/exec_cadastrar_livro.php" method="post" enctype="multipart/form-data">
 
-      <div class="form-group">
-        <label for="titulo">Título do Livro:</label>
-        <input type="text" name="titulo" id="titulo" placeholder="Digite o título do produto" required>
-      </div>
+      <table class="form-table">
 
-      <div class="form-group">
-        <label for="capa">Capa do Livro:</label>
-        <input type="file" name="capa" id="capa" accept="image/*">
-      </div>
+        <tr>
+          <td><label for="titulo">Título do Livro:</label></td>
+          <td><input type="text" name="titulo" id="titulo" placeholder="Digite o título do produto" required></td>
+        </tr>
 
-      <!-- quando estiver pronto, fazer pegar o id pelo nome do autor por select, se n exixstir, cria o autor -->
-      <div class="form-group">
-        <label for="autor">Id Autor:</label>
-        <input type="number" name="autor" id="autor" placeholder="Digite o id do autor" required>
-      </div>
+        <tr>
+          <td><label for="capa">Capa do Livro:</label></td>
+          <td><input type="file" name="capa" id="capa" accept="image/*"></td>
+        </tr>
 
-      <div class="form-group">
-        <label for="ano_publi">Ano de Publicação:</label>
-        <input type="number" name="ano_publi" id="ano_publi" placeholder="Digite o ano de publicação" required>
-      </div>
+        <tr>
+          <td><label for="autor">Autor:</label></td>
+          <td>
+            <input type="text" name="autor" id="autor"
+            <?php 
+              if ($autor){
+                echo 'value="'.$autor.'"';
+              } else{
+                echo 'placeholder="Nome Autor"'; 
+              }
+            ?> required>
+          </td>
+        </tr>
 
-      <div class="form-group">
-        <label for="editora">Editora:</label>
-        <input type="text" name="editora" id="editora" placeholder="Digite o nome de editora" required>
-      </div>
+        <tr>
+          <td><label for="ano_publi">Ano de Publicação:</label></td>
+          <td><input type="number" name="ano_publi" id="ano_publi" placeholder="Digite o ano de publicação" required></td>
+        </tr>
 
-      <div class="form-group">
-        <label for="paginas">Número de Páginas:</label>
-        <input type="num" name="paginas" id="paginas" placeholder="Digite o numero de paginas" required>
-      </div>
+        <tr>
+          <td><label for="editora">Editora:</label></td>
+          <td><input type="text" name="editora" id="editora" placeholder="Digite o nome de editora" required></td>
+        </tr>
 
-       <div class="form-group">
-        <label for="sinopse">Sinopse:</label>
-        <input type="text" name="sinopse" id="sinopse" placeholder="Digite a sinopse" required>
-      </div>
+        <tr>
+          <td><label for="paginas">Número de Páginas:</label></td>
+          <td><input type="number" name="paginas" id="paginas" placeholder="Digite o número de páginas" required></td>
+        </tr>
 
-      <!-- transformar em tipo select, pegando categorias já cadastradas no banco, mesma coisa que o autor  -->
-      <div class="form-group">
-        <label for="categoria"> id Categoria:</label>
-        <input type="num" name="categoria" id="categoria" placeholder="" required>
-      </div>
+        <tr>
+          <td><label for="sinopse">Sinopse:</label></td>
+          <td><input type="text" name="sinopse" id="sinopse" placeholder="Digite a sinopse" required></td>
+        </tr>
 
-      <div class="form-group">
-        <label for="copias"> Número de Copias:</label>
-        <input type="num" name="copias" id="copias" placeholder="" required>
-      </div>
+        <tr>
+          <td><label for="categoria">Categoria:</label></td>
+          <td><input type="text" name="categoria" id="categoria" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="copias">Número de Cópias:</label></td>
+          <td><input type="number" name="copias" id="copias" required></td>
+        </tr>
+
+      </table>
 
       <div class="text-center mt-6">
         <button type="submit" class="btn">Cadastrar</button>
       </div>
     </form>
+
     <?php
-      //Exibir alerta de sucesso se houver retorno na URL
       if (isset($_GET['retorno']) && $_GET['retorno'] === 'ok') {
         echo '<div class="mensagem-sucesso text-center mt-6">Livro cadastrado com sucesso!</div>';
       }
     ?>
   </main>
-  <!-- Rodapé -->
+
   <footer class="footer text-center">
-    <p>Wise Library 2025 &copy; </p>
+    <p>Wise Library 2025 &copy;</p>
   </footer>
 </div>
 </body>

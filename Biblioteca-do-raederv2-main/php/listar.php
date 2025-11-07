@@ -11,22 +11,21 @@ $resultado = mysqli_query($conexao, "SELECT * FROM livro");
   <meta charset="UTF-8">
   <title>Lista de Livros</title>
   <link rel="stylesheet" href="../css/paleta.css">
+  <link rel="stylesheet" href="../css/adm.css">
 </head>
 <body>
 
 <div class="container">
 
   <!-- Cabeçalho -->
-  <header class="header">
-    <a href="#" class="brand">
+   <header class="header">
       <img src="" alt="">
-      <span>Área Administrativa</span>
-    </a>
-    <nav class="nav">
-      <a href="../php/form_cadastrar_livro.php" class="btn small">Cadastrar Livro</a>
-      <a href="../php/listar.php" class="btn small">Listar</a>
-      <a href="../php/sair.php" class="btn small ghost">Sair</a>
-    </nav>
+      <h2>Área Administrativa</h2>
+      <nav class="nav">
+        <a href="../php/form_cadastrar_livro.php"><button>Cadastrar Livro</button></a>
+        <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
+        <a href="../php/sair.php"><button>Sair</button></a>
+      </nav>
   </header>
 
   <!-- Conteúdo principal -->
@@ -60,11 +59,11 @@ $resultado = mysqli_query($conexao, "SELECT * FROM livro");
         <tbody>
           <?php while ($linha = mysqli_fetch_assoc($resultado)) { ?>
             <tr>
-              <td><?php echo htmlspecialchars($linha['id']); ?></td>
-              <td><?php echo htmlspecialchars($linha['nome']); ?></td>
+              <td><?php echo htmlspecialchars($linha['id_livro']); ?></td>
+              <td><?php echo htmlspecialchars($linha['titulo']); ?></td>
               <td class="actions">
-                <a href="form_editar.php?id=<?php echo $linha['id']; ?>" class="btn small">Atualizar</a>
-                <a href="confirmar_excluir.php?id=<?php echo $linha['id']; ?>" class="btn small danger">Excluir</a>
+                <a href="form_editar_livro.php?id=<?php echo $linha['id_livro']; ?>" class="btn small">Atualizar</a>
+                <a href="confirmar_excluir.php?id=<?php echo $linha['id_livro']; ?>" class="btn small danger">Excluir</a>
               </td>
             </tr>
           <?php } ?>
