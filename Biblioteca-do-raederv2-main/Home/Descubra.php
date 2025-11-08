@@ -29,6 +29,8 @@
 
    //função para auxiliar a exibir as categorias
    function exibirCategoria($categoria,$titulo) {
+
+    
      global $conexao;
      $stmt = $conexao->prepare("SELECT l.id_livro, l.titulo, a.nome_autor 
         FROM livro l 
@@ -45,7 +47,7 @@
 
      while($livro = $result->fetch_assoc()) {
         echo "<td>
-         <a href='../php/livroPadrao.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
+         <a href='../Livros/livroPadrao.php?id={$livro['id_livro']}&mensagem='><img src='../fotos/{$livro['id_livro']}.jpg' alt='{$livro['titulo']}'></a>
          <h3>{$livro['titulo']}</h3>
          </td>";
      }
@@ -54,8 +56,11 @@
      $stmt->close();
    }
 
-   exibirCategoria('Clássicos', 'Clássicos');
-   exibirCategoria('Infanto-juvenil', 'Infanto-juvenil');
+   exibirCategoria(1, 'Romance');
+   exibirCategoria(2, 'Infanto-juvenil');
+   //exibirCategoria(3, 'Fantasia'); tirar de comentario quando tiver um livro com essa categoria
+   //exibirCategoria(4, 'Mistério');
+   exibirCategoria(5, 'Drama');
 
    // livro + procurados 
 
@@ -66,8 +71,17 @@
     <div class='meio'> <table> <tr>";
 
    while($livro = $result->fetch_assoc()) {
+            $endereco_livro;
+            $id = $livro['id_livro'];
+
+            if (file_exists("../fotos/$id.jpg")){
+                $endereco_livro = "../fotos/".$id.".jpg";
+            }elseif (file_exists("../fotos/$id.png")){
+                $endereco_livro = "../fotos/".$id.".png";
+            }
+
         echo "<td>
-         <a href='../php/livroPadrao.php?id={$livro['id_livro']}'><img src='../fotos/{$livro['id_livro']}.png' alt='{$livro['titulo']}'></a>
+         <a href='../Livros/livroPadrao.php?id={$id}&mensagem='><img src='$endereco_livro' alt='{$livro['titulo']}'></a>
          <h3>{$livro['titulo']}</h3>
          </td>";
     }

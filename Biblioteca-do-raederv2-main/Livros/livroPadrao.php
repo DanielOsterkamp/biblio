@@ -49,7 +49,7 @@
         <ul>
 
         <li> <a href="../Home/Home.php">minha conta</a></li>
-        <li> <a href="../Home/Descubra.html">trending</a></li>
+        <li> <a href="../Home/Descubra.php">trending</a></li>
         <li> <a href="../Inicio/Inicio.html">log-out</a></li>
         <li> <form action="../Livros/Pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
         </ul>
@@ -81,9 +81,6 @@
                 
               <?php
 
-                
-            
-                
 
                 echo "<tr> <td>Quantidade de Cópias: ".$quantidadeDeCopias ."</td>";
 
@@ -119,7 +116,7 @@
                       <p> <!-- essa mensagem vai ser mostrada pelos phps que derem include nessa pagina -->
                         <?php 
                             $mensagem = $_GET['mensagem']; 
-                            if ($mensagem != ""){ 
+                            if ($mensagem){ 
                                 echo $mensagem;
                                 }  
                         ?>
