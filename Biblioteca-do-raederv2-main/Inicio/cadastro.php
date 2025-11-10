@@ -37,7 +37,7 @@ echo "Linhas afetadas: " . $stmt->affected_rows . "<br>";
         
         <h1 style="margin: 150px;" > Cadastro Concluido </h1>
 
-        <a href="Inicio.html">
+        <a href="index.html">
         <p>Clique aqui para voltar à página inicial</p>
         </a>
        

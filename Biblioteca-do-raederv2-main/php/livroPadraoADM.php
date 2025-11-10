@@ -50,7 +50,7 @@
 
         <li> <a href="../php/principal.php">Inicio</a></li>
         <li> <a href="../php/sair.php">Login ADM</a></li>
-        <li> <a href="../Inicio/Inicio.html">Login usuário normal</a></li>
+        <li> <a href="../Inicio/index.html">Login usuário normal</a></li>
         </ul>
 
     </div>

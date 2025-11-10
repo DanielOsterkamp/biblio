@@ -12,7 +12,7 @@
         <ul>
             <li><a href="../Home/Home.php">Minha Conta</a></li>
             <li><a href="../Home/Descubra.html">Trending</a></li>
-            <li><a href="../Inicio/Inicio.html">Log-out</a></li>
+            <li><a href="../Inicio/index.html">Log-out</a></li>
             <li>
                 <form action="pesquisa.php" method="post">
                     <input type="text" name="nome" id="nome" placeholder="Pesquisar">

@@ -38,13 +38,18 @@ $autor = $_GET['autor'];
 
 
   <!-- caso o usuario tenha vindo pelo erro de autor não encontrado do exec_cadastrar_livro, mostra essa mensagem-->
-  <?php
+ 
+
+    <h1 class="h1 text-center">Cadastro de Autor</h1>
+
+     <?php
   if ($autor){ 
-    echo '<h2 class="h1 text-center">Nome do autor '.$autor .' não encontrado, cadastre ele</h2>';
+    echo '<h2 >Autor '.$autor .' não encontrado, cadastre ele</h2>';
   }
   ?>
 
-    <h1 class="h1 text-center">Cadastro de Autor</h1>
+    <br>
+
     <p class="lead text-center">Preencha os dados abaixo para incluir um novo Autor</p>
 
     <form action="../php/exec_criar_autor.php" method="post" enctype="multipart/form-data" class="form mt-6">
