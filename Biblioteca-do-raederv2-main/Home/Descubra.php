@@ -69,6 +69,7 @@
    //exibirCategoria(3, 'Fantasia'); tirar de comentario quando tiver um livro com essa categoria
    exibirCategoria(4, 'Mistério');
    exibirCategoria(5, 'Drama');
+   exibirCategoria(6, 'Ficção');
 
    // livro + procurados 
 
