@@ -64,7 +64,17 @@
 
                <tr>
                   <td rowspan="7">
-                    <img src="../fotos/<?php echo $id.".jpg";?>"  alt="" > <!-- ele tenta como jpg, se n existir, tenta como png -->
+                    <img src="<?php 
+                    if (file_exists("../fotos/$id.jpg")){
+                        echo "../fotos/".$id.".jpg";
+                    }elseif (file_exists("../fotos/$id.png")){
+                        echo "../fotos/".$id.".png";
+                    }
+                    
+                    ?>
+
+                    "  alt="" >
+
                     </td>
                </tr>
                <tr>
