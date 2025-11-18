@@ -33,7 +33,7 @@ include_once('config.php');
     $result = $stmt2->get_result();
 
   if ($result->num_rows == 0){// se não encontrou algum autor com aquele nome, leva ele pro cadastro de autor
-        header("Location: ../php/form_cadastrar_autor.php?autor=$autor");
+        header("Location: ../php/form_cadastrar_autor.php?autor=$autor&titulo=$titulo&capa=$quant_copias&ano=$ano_publi&editora=$editora&numero=$num_paginas&sinopse=$sinopse&categoria=$categoria&copias=$quant_copias");
   }
 
  
@@ -48,7 +48,8 @@ include_once('config.php');
 
  if ($result->num_rows == 0){ // se não encontrou alguma categoria com aquele nome, volta pro formulario
     $mensagem = "nenhuma categoria com o nome ".$categoria. " encontrada"; // vai mostrar essa mensagem no formulario
-    header("Location: ../php/form_cadastrar_livro.php?mensagem=$mensagem");
+    header("Location: ../php/form_cadastrar_livro.php?mensagem=$mensagem&titulo=$titulo&capa=$quant_copias&ano=$ano_publi&editora=$editora&numero=$num_paginas&sinopse=$sinopse&categoria=$categoria&copias=$quant_copias&autor=$autor");
+   
  }
 
  $id_categoria = $result->fetch_assoc()['id_categoria'];

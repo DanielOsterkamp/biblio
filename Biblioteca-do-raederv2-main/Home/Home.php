@@ -18,7 +18,7 @@
         <ul>
 
         <li> <a href="Home.php">Minha conta</a></li>
-        <li> <a href="../Home/Descubra.php">trending</a></li>
+        <li> <a href="../Home/Descubra.php">Trending</a></li>
         <li> <a href="../Inicio/index.html">Log-out</a></li>
         <li>
             <form action="../Livros/pesquisa.php" method="post"> <input type="text" name="nome" id="nome" placeholder="Pesquisar"></form>
@@ -78,9 +78,21 @@
            
              <tr> 
                 
-                <td style="padding-top: 175px;"><button> Mudar Senha </button></td>
-                <td style="padding-top: 175px;"> <button> Mudar Apelido </button></td>
-                <td style=" padding-top: 175px; "> <button> Excluir Conta </button></td>
+                <td style="padding-top: 175px;">
+                    <button type="button" onclick="window.location.href='mudar_senha.php'">
+                        Mudar senha
+                    </button>
+                </td>
+                <td style="padding-top: 175px;">
+                    <button type="button" onclick="window.location.href='mudar_apelido.php'">
+                    Mudar Apelido
+                    </button>
+                </td>
+                <td style=" padding-top: 175px; ">
+                    <button type="button" onclick="window.location.href='excluir_conta.php'">
+                    Excluir Conta
+                    </button>
+                </td>
 
             </tr>
 

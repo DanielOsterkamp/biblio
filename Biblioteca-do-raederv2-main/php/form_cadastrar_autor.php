@@ -16,7 +16,17 @@ error_reporting(E_ALL);
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
-$autor = $_GET['autor'];
+    $autor = $_GET['autor'];
+    $titulo = $_GET['titulo'];
+    $capa = $_GET['capa'];
+    $ano = $_GET['ano'];
+    $editora = $_GET['editora'];
+    $numero = $_GET['numero'];
+    $sinopse = $_GET['sinopse'];
+    $categoria = $_GET['categoria'];
+    $copias = $_GET['copias'];
+    $mensagem = $_GET['mensagem'];
+    $nome = $_POST['nome'];
 
 ?>
 <div class="container">
@@ -52,8 +62,7 @@ $autor = $_GET['autor'];
 
     <p class="lead text-center">Preencha os dados abaixo para incluir um novo Autor</p>
 
-    <form action="../php/exec_criar_autor.php" method="post" enctype="multipart/form-data" class="form mt-6">
-
+   <form action="<?php echo '../php/exec_criar_autor.php?autor=' . $autor .'&titulo=' . $titulo .'&capa=' . $quant_copias .'&ano=' . $ano .'&editora=' . $editora .'&numero=' . $numero .'&sinopse=' . $sinopse . '&categoria=' . $categoria . '&copias=' . $copias; ?>"  method="post" enctype="multipart/form-data"  class="form mt-6">
       <div class="form-group">
         <label for="nome">Nome do Autor:</label>
 

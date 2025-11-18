@@ -16,6 +16,14 @@ error_reporting(E_ALL);
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
+$titulo = $_GET['titulo'];
+$capa = $_GET['capa'];
+$ano = $_GET['ano'];
+$editora = $_GET['editora'];
+$numero = $_GET['numero'];
+$sinopse = $_GET['sinopse'];
+$categoria = $_GET['categoria'];
+$copias = $_GET['copias'];
 $autor = $_GET['autor'];
 $mensagem = $_GET['mensagem'];
 ?>
@@ -50,12 +58,28 @@ $mensagem = $_GET['mensagem'];
 
         <tr>
           <td><label for="titulo">Título do Livro:</label></td>
-          <td><input type="text" name="titulo" id="titulo" placeholder="Digite o título do produto" required></td>
+          <td><input type="text" name="titulo" id="titulo" 
+          <?php 
+              if ($titulo){
+                echo 'value="'.$titulo.'"';
+              } else{
+                echo 'placeholder="Título"'; 
+              }
+            ?>
+             required></td>
         </tr>
 
         <tr>
           <td><label for="capa">Capa do Livro:</label></td>
-          <td><input type="file" name="capa" id="capa" accept="image/*"></td>
+          <td><input type="file" name="capa" id="capa" accept="image/*" 
+          <?php 
+              if ($capa){
+                echo 'value="'.$capa.'"';
+              } else{
+                echo 'placeholder="Capa do Livro"'; 
+              }
+            ?>
+            ></td>
         </tr>
 
         <tr>
@@ -74,32 +98,79 @@ $mensagem = $_GET['mensagem'];
 
         <tr>
           <td><label for="ano_publi">Ano de Publicação:</label></td>
-          <td><input type="number" name="ano_publi" id="ano_publi" placeholder="Digite o ano de publicação" required></td>
+          <td><input type="number" name="ano_publi" id="ano_publi"
+          <?php 
+              if ($ano){
+                echo 'value="'.(int)$ano.'"';
+              } else{
+                echo 'placeholder="Ano de Publicação"'; 
+              }
+            ?>
+             required></td>
         </tr>
 
         <tr>
           <td><label for="editora">Editora:</label></td>
-          <td><input type="text" name="editora" id="editora" placeholder="Digite o nome de editora" required></td>
+          <td><input type="text" name="editora" id="editora" 
+          <?php 
+              if ($editora){
+                echo 'value="'.$editora.'"';
+              } else{
+                echo 'placeholder="editora"'; 
+              }
+            ?>
+             required></td>
         </tr>
 
         <tr>
           <td><label for="paginas">Número de Páginas:</label></td>
-          <td><input type="number" name="paginas" id="paginas" placeholder="Digite o número de páginas" required></td>
+          <td><input type="number" name="paginas" id="paginas"
+          <?php 
+              if ($numero){
+                echo 'value="'.(int)$numero.'"';
+              } else{
+                echo 'placeholder="Número de páginas"'; 
+              }
+            ?>
+            required></td>
         </tr>
 
         <tr>
           <td><label for="sinopse">Sinopse:</label></td>
-          <td><input type="text" name="sinopse" id="sinopse" placeholder="Digite a sinopse" required></td>
+          <td><input type="text" name="sinopse" id="sinopse" 
+          <?php 
+              if ($sinopse){
+                echo 'value="'.$sinopse.'"';
+              } else{
+                echo 'placeholder="Sinopse"'; 
+              }
+            ?>
+             required></td>
         </tr>
 
         <tr>
           <td><label for="categoria">Categoria:</label></td>
-          <td><input type="text" name="categoria" id="categoria" required></td>
+          <td><input type="text" name="categoria" id="categoria" 
+          <?php 
+              if ($categoria){
+                echo 'value="'.$categoria.'"';
+              } else{
+                echo 'placeholder="Categoria"'; 
+              }
+            ?>
+             required></td>
         </tr>
 
         <tr>
           <td><label for="copias">Número de Cópias:</label></td>
-          <td><input type="number" name="copias" id="copias" required></td>
+          <td><input type="number" name="copias" id="copias" 
+          <?php 
+              if ($copias){
+                echo 'value="'.(int)$copias.'"';
+              } else{
+                echo 'placeholder="Copias"'; 
+              }
+            ?>required></td>
         </tr>
 
       </table>
