@@ -2,10 +2,17 @@
 require_once "../php/config.php";
 // Verificar se é POST e campos obrigatórios estão presentes
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
-    $nome = $_POST['nome'];
+    
     $data = $_POST['data']; 
     $nacionalidade = $_POST['nacionalidade'];
-  
+    $titulo = $_GET['titulo'];
+    $ano = $_GET['ano'];
+    $editora = $_GET['editora'];
+    $numero = $_GET['numero'];
+    $sinopse = $_GET['sinopse'];
+    $categoria = $_GET['categoria'];
+    $copias = $_GET['copias'];
+    $nome = $_POST['nome'];
 } else {
     $msg = urlencode('Acesso negado!');
     header("location: ../php/entrar.php?retorno=$msg");
@@ -27,6 +34,6 @@ mysqli_stmt_close($stmt);
 mysqli_close($conexao);
 
 // Redirecionar para criar a página HTML dinâmica
-header("Location: ../php/form_cadastrar_livro.php?autor=$nome");
+header("Location: ../php/form_cadastrar_livro.php?autor=$nome&titulo=$titulo&capa=$copias&ano=$ano&editora=$editora&numero=$numero&sinopse=$sinopse&categoria=$categoria&copias=$copias");
 exit;
 ?>
