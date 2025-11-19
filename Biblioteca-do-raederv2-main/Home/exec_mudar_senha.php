@@ -31,7 +31,7 @@ if ($result->num_rows === 0) {
 
 $dados = $result->fetch_assoc();
 $senha_atual_banco = $dados['senha'];
-$senha_atual_banco = password_hash($senha_atual_banco, PASSWORD_DEFAULT); // mesma ideia do cadastro da jolie, quando tudo estiver com hash é para apagar essa linha
+
 
 if (!password_verify($senha_antiga, $senha_atual_banco)) {
     $msg = urlencode("Senha antiga incorreta!");

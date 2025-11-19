@@ -6,76 +6,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link rel="stylesheet" href="paleta.css">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/inicio.css">
 </head>
 <body>
 
-     <div style="display: block; text-align: center; padding-top: 100px;" >
+     <div>
         
+
         <h1> Log In </h1>
 
-          <form action="login.php" method="post">
-        <table>
-            <tr>
-                <td><p>Nome</p></td>  
-                <td> <input type="text" name="nome" id=""></td>
-            </tr>
-             <tr>
-                <td><p>Senha</p></td>  
-                <td> <input type="password" name="senha" id=""></td>
-            </tr>
-            <tr>
-                <td colspan="2">  <input type="submit" style="padding: 15px 40px; font-size: 15px; margin: 80px;"
-                 name="submit"></td>
-            </tr>
-           
-             <?php
+        <form action="login.php" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <p>Nome</p>
+                    </td>
+                    <td> <input type="text" name="nome" id=""></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Senha</p>
+                    </td>
+                    <td> <input type="password" name="senha" id=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <input type="submit" style="margin: 80px;" name="submit"></td>
+                </tr>
+                 <?php
 
                 session_start();
 
                 $nome = $_POST['nome'];
                 $senha = $_POST['senha'];
 
-                include_once('../php/config.php');
+                require_once('../php/config.php');
 
-                $stmt = $conexao->prepare("SELECT id_usuario FROM Usuario WHERE nome_usuario = ? and senha = ? ");
-                if (!$stmt) {
-                    die("Erro no prepare: " . $conexao->error);
-                }
+                 $sql = "SELECT * FROM usuario WHERE nome_usuario = ?"; 
+                 $stmt = mysqli_prepare($conexao, $sql);
 
-                $stmt->bind_param("ss", $nome,  $senha); // mudar o "sss" para quantidade de variaveis
+                if ($stmt) {
+                    mysqli_stmt_bind_param($stmt, "s", $nome);
+                    mysqli_stmt_execute($stmt);
+                    $resultado = mysqli_stmt_get_result($stmt);
 
-                if (!$stmt->execute()) {
-                    die("Erro no execute: " . $stmt->error);
-                }
+                    if ($linha = mysqli_fetch_assoc($resultado)) {
 
-                $result = $stmt->get_result();
-             
+                        //Verificar se a senha informada bate com o hash no banco
+                        if (password_verify($senha, $linha['senha'])) {  
+                            session_start();
+                            $_SESSION['nome'] = $nome; 
+                            $_SESSION['id'] =  $linha['id_usuario'];
+                            $_SESSION['login'] = 'ok';
+                             header("Location: ../Home/Home.php");
+                         
+                        }else{
+                            echo "  <tr><td colspan='2'><p style='text-align: center;'> Nome ou Senha incorretos</p></td></tr>";
+                        }
+                
+                    }else{
+                         echo "  <tr><td colspan='2'><p style='text-align: center;'>Nome ou Senha incorretos</p></td></tr>";
+                     }
+    }
 
-
-                if ($result->num_rows > 0){
-                    if ($row = $result->fetch_assoc()) {
-                        $_SESSION['nome'] = $nome; 
-                        $_SESSION['id'] =  $row['id_usuario'];
-                    }
-                    
-
-                    header("Location: ../Home/Home.php");
-                }else{
-                    echo "  <tr><td colspan='2'><p style='text-align: center;'> Nome ou Senha incorretos</p></td></tr>";
-                }
                 ?>
-
-
-
-        </table>
+            </table>
         </form>
-
-  
-    
+   
     </div>
 
-    
+
 </body>
 </html>
 

@@ -23,12 +23,14 @@
         </ul>
     </div>
 
+        <h1 style="text-align: center"><?php echo $_GET['autor']?></h1>
+
    <?php
 
    include_once('../php/config.php');
 
    //função para auxiliar a exibir as categorias
-   function exibirCategoria($categoria,$titulo) {
+   function exibirCategoria($titulo) {
 
     
      global $conexao;
@@ -36,14 +38,14 @@
         FROM livro l 
         JOIN autor a 
         ON l.id_autor = a.id_autor 
-        WHERE l.id_categoria = ? 
+        WHERE a.nome_autor = ? 
         LIMIT 7");
 
-     $stmt->bind_param("s",$categoria);
+     $stmt->bind_param("s",$titulo);
      $stmt->execute();
      $result = $stmt->get_result();
 
-     echo "<h2> $titulo </h2> <div class='meio'> <table> <tr>";
+     echo " <div class='meio'> <table> <tr>";
 
      while($livro = $result->fetch_assoc()) {
          $endereco_livro;
@@ -64,45 +66,15 @@
      $stmt->close();
    }
 
-   exibirCategoria(1, 'Romance');
-   exibirCategoria(2, 'Infanto-juvenil');
-   //exibirCategoria(3, 'Fantasia'); tirar de comentario quando tiver um livro com essa categoria
-   exibirCategoria(5, 'Drama');
-   exibirCategoria(6, 'Ficção');
-
-   // livro + procurados 
-
-   $stmt = $conexao->prepare("SELECT * FROM livros_mais_emprestados LIMIT 7");
-   $stmt->execute();
-   $result = $stmt->get_result();
-   echo "<h2> Livros mais procurados </h2>
-    <div class='meio'> <table> <tr>";
-
-   while($livro = $result->fetch_assoc()) {
-            $endereco_livro;
-            $id = $livro['id_livro'];
-
-            if (file_exists("../fotos/$id.jpg")){
-                $endereco_livro = "../fotos/".$id.".jpg";
-            }elseif (file_exists("../fotos/$id.png")){
-                $endereco_livro = "../fotos/".$id.".png";
-            }
-
-        echo "<td>
-         <a href='../Livros/livroPadrao.php?id={$id}&mensagem='><img src='$endereco_livro' alt='{$livro['titulo']}'></a>
-         <h3>{$livro['titulo']}</h3>
-         </td>";
-    }
+   exibirCategoria( $_GET['autor']);
+  
 
      echo "</tr></table></div>";
-     $stmt->close();
+    
      $conexao->close();
    ?>
 
-    <div class="rodape1">
-        <p >WiseLibrary</p>
-    </div>
-
+   
 
 </body>
 

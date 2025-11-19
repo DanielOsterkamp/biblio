@@ -20,12 +20,8 @@ if (isset($_POST['sub']) && !empty($_POST['sub']))
 
         if ($linha = mysqli_fetch_assoc($resultado)) {
 
-           $novaSenha = password_hash($pas, PASSWORD_DEFAULT); // passa a senha pra hash (testando o cadastro da jolie, já que os usuarios criados direto no banco não tem hash)
-
-           echo $novaSenha;
-
             //Verificar se a senha informada bate com o hash no banco
-            if (password_verify($pas, $novaSenha)) {  // colocar "$linha['senha']" no lugar do "novasenha" quando todos os usuarios do banco estiverem com hash
+            if (password_verify($pas, $linha['senha'])) {  
                 session_start();
                 $_SESSION['login'] = 'ok';
                 header("Location: ../php/principal.php");

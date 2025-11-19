@@ -44,7 +44,7 @@
   </div>
 
   <div class="footer text-center">
-    <center><p>WiseLibrary 2025©</p><center>
+    <p>WiseLibrary 2025©</p>
   </div>
 
 </div>

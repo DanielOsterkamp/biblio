@@ -5,21 +5,21 @@ $data_nascimento = $_POST['data'];
 
 include_once('../php/config.php');
 
-echo "Nome recebido: " . $nome . "<br>";
+$novaSenha = password_hash($senha, PASSWORD_DEFAULT); // passa a senha pra hash
+
+
 
 $stmt = $conexao->prepare("INSERT INTO Usuario (nome_usuario, data_nascimento_usuario, senha) VALUES (?, ?, ?)");
 if (!$stmt) {
     die("Erro no prepare: " . $conexao->error);
 }
 
-$stmt->bind_param("sss", $nome, $data_nascimento, $senha); // mudar o "sss" para quantidade de variaveis
+$stmt->bind_param("sss", $nome, $data_nascimento, $novaSenha); // mudar o "sss" para quantidade de variaveis
 
 if (!$stmt->execute()) {
     die("Erro no execute: " . $stmt->error);
 }
 
-echo "Inserido com sucesso!";
-echo "Linhas afetadas: " . $stmt->affected_rows . "<br>";
 ?>
 
 <!DOCTYPE html>
