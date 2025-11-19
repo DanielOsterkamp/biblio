@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 
 session_start();
-if (!isset($_SESSION['login']) || $_SESSION['login'] != 'ok') {
+if (!isset($_SESSION['nome'])) {
 	$msg = urlencode('Voce não tem permissao!');
-	header("location: ./entrar.php?retorno=$msg");
+    header("Location: Home.php?retorno=$msg");
 	exit;
 }
 ?>

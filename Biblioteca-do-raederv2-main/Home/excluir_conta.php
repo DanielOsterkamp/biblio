@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once("../php/verificar_sessao.php");
 ?>
 

@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
-session_start();
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Apelido inválido.");
     }
 
-    $sql = "UPDATE usuario SET nome = ? WHERE id_usuario = ?";
+    $sql = "UPDATE usuario SET nome_usuario = ? WHERE id_usuario = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "si", $novo, $id);
 

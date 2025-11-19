@@ -1,8 +1,11 @@
 <?php
+
+session_start();
+
 require_once ("../php/config.php");
 require_once("../php/verificar_sessao.php");
 
-session_start();
+
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: Home.php");
@@ -12,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $id_usuario = $_SESSION['id'];
 $senha_antiga = trim($_POST['senha_antiga']);
 $senha_nova = trim($_POST['senha_nova']);
+
 
 $sql = "SELECT senha FROM usuario WHERE id_usuario = ?";
 $stmt = mysqli_prepare($conexao, $sql);
@@ -27,6 +31,7 @@ if ($result->num_rows === 0) {
 
 $dados = $result->fetch_assoc();
 $senha_atual_banco = $dados['senha'];
+$senha_atual_banco = password_hash($senha_atual_banco, PASSWORD_DEFAULT); // mesma ideia do cadastro da jolie, quando tudo estiver com hash é para apagar essa linha
 
 if (!password_verify($senha_antiga, $senha_atual_banco)) {
     $msg = urlencode("Senha antiga incorreta!");

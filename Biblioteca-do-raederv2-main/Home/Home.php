@@ -34,6 +34,10 @@
 
         <?php
             session_start();
+
+            if (isset($_GET['retorno'])) {
+                echo "<h3>" . $_GET['retorno'] . "</h3>";
+            }
        
             echo  "<h1 >Bem-vindo(a) ".$_SESSION['nome'];
             echo "</h1>" ; 
