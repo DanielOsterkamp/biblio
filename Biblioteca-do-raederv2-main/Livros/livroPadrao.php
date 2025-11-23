@@ -47,8 +47,8 @@
     <div class = "head">
       
         <ul>
-        <li> <a href="../Home/Home.php">minha conta</a></li>
-        <li> <a href="../Home/Descubra.php">trending</a></li>
+        <li> <a href="../Home/Home.php">Minha conta</a></li>
+        <li> <a href="../Home/Descubra.php">Trending</a></li>
         <li> <a href="../php/sair.php">Log-out</a></li>
         <li> <form action="../Livros/Pesquisa.php" method="post"> <input type="text" name="nome" id="nome" style="height: 17px;" placeholder="Pesquisar"></form></li>
         </ul>

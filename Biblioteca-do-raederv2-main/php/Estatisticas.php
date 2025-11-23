@@ -34,12 +34,12 @@ require_once("../php/config.php");
 
   <!-- Cabeçalho -->
   <header class="header">
-      <h1>Estatisticas</h1>
+      <h1>Estatísticas</h1>
   </header>
 
   <!-- Conteúdo principal -->
   
-    <h2>usuarios com emprestimo atrasado</h2>
+    <h2>Usuários com empréstimos atrasados</h2>
       <table class="table">
      
           <tr>
@@ -74,7 +74,7 @@ require_once("../php/config.php");
     
       </table>
     <h2>Volume físico por estante/localizacao</h2>
-    <h2>média de paginas dos livros</h2>
+    <h2>Média de paginas dos livros</h2>
             
     <h1 style = "font-size: 60px">
       <?php   $resultado = mysqli_query($conexao, "SELECT * FROM media"); 

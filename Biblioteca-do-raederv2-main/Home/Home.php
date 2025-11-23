@@ -66,6 +66,7 @@
                 $stmt_emprestimo = mysqli_query($conexao,"SELECT * FROM emprestimo WHERE id_usuario = ". $_SESSION['id']);
            
                 while ($emprestimo = mysqli_fetch_assoc($stmt_emprestimo)){
+                    //retorna um array com os resultados do banco
 
                     $stmt_livro = mysqli_query($conexao,"SELECT * FROM livro WHERE id_livro = ". $emprestimo['id_livro']);
                     
