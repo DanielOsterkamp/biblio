@@ -41,7 +41,7 @@
         JOIN autor a 
         ON l.id_autor = a.id_autor 
         WHERE l.id_categoria = ? 
-        LIMIT 6");
+        LIMIT 7");
 
      $stmt->bind_param("s",$categoria);
      $stmt->execute();

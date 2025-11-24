@@ -38,8 +38,9 @@ require_once '../php/verificar_sessao.php';
   <nav class="nav">
       <a href="../php/form_cadastrar_livro.php"><button>Cadastrar</button></a>
       <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
-      <a href="../php/Estatisticas.php"><button>Estatisticas</button></a>
+      <a href="../php/Estatisticas.php"><button>Estatísticas</button></a>
       <a href="../php/sair.php" class="btn small ghost"><button>Sair</button></a>
+      <a href="../php/form_cadastrar_autor.php"><button>Cadastrar Autor(a)</button></a>
       
     </nav>
 

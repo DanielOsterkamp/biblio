@@ -25,6 +25,7 @@ $resultado = mysqli_query($conexao, "SELECT * FROM livro");
         <a href="../php/form_cadastrar_livro.php"><button>Cadastrar Livro</button></a>
         <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
         <a href="../php/sair.php"><button>Sair</button></a>
+        <a href="../php/form_cadastrar_autor.php"><button>Cadastrar Autor(a)</button></a>
       </nav>
   </header>
 
