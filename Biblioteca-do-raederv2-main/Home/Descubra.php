@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Descubra</title>
 
     <link rel="stylesheet" href="../css/paleta.css">
     <link rel="stylesheet" href="../css/home.css">
+    <style> 
+        
+
+    </style>
 </head>
 
 <body>
@@ -37,13 +41,13 @@
         JOIN autor a 
         ON l.id_autor = a.id_autor 
         WHERE l.id_categoria = ? 
-        LIMIT 7");
+        LIMIT 6");
 
      $stmt->bind_param("s",$categoria);
      $stmt->execute();
      $result = $stmt->get_result();
 
-     echo "<h2> $titulo </h2> <div class='meio'> <table> <tr>";
+     echo "<h2 style = 'text-align: center'> $titulo </h2> <div class='meio'> <table> <tr>";
 
      while($livro = $result->fetch_assoc()) {
          $endereco_livro;
@@ -56,7 +60,9 @@
             }
         echo "<td>
          <a href='../Livros/livroPadrao.php?id={$livro['id_livro']}&mensagem='><img src='$endereco_livro' alt='{$livro['titulo']}'></a>
-         <h3>{$livro['titulo']}</h3>
+         <h3 style = ' font-size: clamp(10px, 1.5vw, 18px);
+    max-width: 180px;
+    word-wrap: break-word;'>{$livro['titulo']}</h3>
          </td>";
      }
 
@@ -75,7 +81,7 @@
    $stmt = $conexao->prepare("SELECT * FROM livros_mais_emprestados LIMIT 7");
    $stmt->execute();
    $result = $stmt->get_result();
-   echo "<h2> Livros mais procurados </h2>
+   echo "<h2 style = 'text-align: center'> Livros mais procurados </h2>
     <div class='meio'> <table> <tr>";
 
    while($livro = $result->fetch_assoc()) {
@@ -90,7 +96,9 @@
 
         echo "<td>
          <a href='../Livros/livroPadrao.php?id={$id}&mensagem='><img src='$endereco_livro' alt='{$livro['titulo']}'></a>
-         <h3>{$livro['titulo']}</h3>
+         <h3 style= ' font-size: clamp(10px, 1.5vw, 18px);
+    max-width: 180px;
+    word-wrap: break-word;'>{$livro['titulo']}</h3>
          </td>";
     }
 

@@ -21,6 +21,7 @@ li {
     font-size: 18px;
     border-radius: 8px;
     transition: background 0.3s ease;
+    text-align: center;
 }
 
 li a {
@@ -46,12 +47,16 @@ body {
 
 /* Títulos */
 
+h2 {
+    
+}
 
 h3 {
     color: #000000;
     font-size: 18px;
     margin-top: 10px;
     font-family: "Trebuchet MS", sans-serif;
+    text-align: center;
 }
 
 /* Imagens */
@@ -94,7 +99,7 @@ input[type="text"]:focus {
 }
 
 .meio{
-    display: block;
+    display: flex;
     text-align: center;
 }
 

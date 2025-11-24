@@ -41,7 +41,7 @@
     <div class="popup">
         <h2>Mudar Senha</h2>
 
-        <form action="/biblio/Biblioteca-do-raederv2-main/Home/exec_mudar_senha.php" method="POST">
+        <form action="../Home/exec_mudar_senha.php" method="POST">
             <input type="password" name="senha_antiga" placeholder="Senha antiga" required>
             <input type="password" name="senha_nova" placeholder="Nova senha" required>
 
