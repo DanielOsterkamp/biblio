@@ -1,8 +1,5 @@
 <?php
 // Habilita a exibição de erros na página (0 = desativado)
-
-
-
 require_once '../php/verificar_sessao.php'; 
 require_once("../php/config.php");
 ?>
@@ -74,8 +71,21 @@ require_once("../php/config.php");
           <?php } ?>
     
       </table>
+
+      </table>
+    <h2>Autores mais procurados</h2>
+     <table class="table">
+   
+          <?php   $resultado = mysqli_query($conexao, "SELECT * FROM autores_mais_procurados"); 
+          while ($linha = mysqli_fetch_assoc($resultado)) { ?>
+            <tr>
+              <td><?php echo htmlspecialchars($linha['nome_autor']); ?></td>
+            </tr>
+          <?php } ?>
+    
+      </table>
     <h2>Volume físico por estante/localizacao</h2>
-    <h2>Média de paginas dos livros</h2>
+    <h2>Média de páginas dos livros</h2>
             
     <h1 style = "font-size: 60px">
       <?php   $resultado = mysqli_query($conexao, "SELECT * FROM media"); 
