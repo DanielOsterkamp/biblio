@@ -35,7 +35,7 @@ if (!$stmt->execute()) {
 
      <div style="display: block; text-align: center; padding-top: 100px;" >
         
-        <h1 style="margin: 150px;" > Cadastro Concluido </h1>
+        <h1 style="margin: 150px;" > Cadastro Concluído </h1>
 
         <a href="index.html">
         <p>Clique aqui para voltar à página inicial</p>

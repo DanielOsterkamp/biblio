@@ -24,9 +24,9 @@ require_once("../php/config.php");
       <h2>Área Administrativa</h2>
       <nav class="nav">
         <a href="../php/form_cadastrar_livro.php"><button>Cadastrar Livro</button></a>
+        <a href="../php/form_cadastrar_autor.php"><button>Cadastrar Autor(a)</button></a>
         <a href="../php/listar.php"><button>Atualizar/Excluir</button></a>
         <a href="../php/sair.php"><button>Sair</button></a>
-        <a href="../php/form_cadastrar_autor.php"><button>Cadastrar Autor(a)</button></a>
       </nav>
   </header>
 
@@ -41,7 +41,7 @@ require_once("../php/config.php");
       <table class="table">
      
           <tr>
-            <th><p>Nome do Livro</p></th>
+            <th><p>Nome do usuário</p></th>
             <th><p>Data</p></th>
           </tr>
    
@@ -83,8 +83,7 @@ require_once("../php/config.php");
             </tr>
           <?php } ?>
     
-      </table>
-    <h2>Volume físico por estante/localizacao</h2>
+        </table>
     <h2>Média de páginas dos livros</h2>
             
     <h1 style = "font-size: 60px">
