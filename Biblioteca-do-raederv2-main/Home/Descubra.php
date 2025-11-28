@@ -73,8 +73,8 @@
    exibirCategoria(1, 'Romance');
    exibirCategoria(2, 'Infanto-juvenil');
    //exibirCategoria(3, 'Fantasia'); tirar de comentario quando tiver um livro com essa categoria
-   exibirCategoria(5, 'Drama');
-   exibirCategoria(6, 'Ficção');
+   exibirCategoria(4, 'Drama');
+   exibirCategoria(5, 'Ficção');
 
    // livro + procurados 
 
